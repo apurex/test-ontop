@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+
+// Font
+@font-face {
+    font-family: aileron;
+    src: url(assets/aileron/Aileron-Regular.otf) format("opentype");
+}
+
+// Globals Var
+:root {
+    --fontBase: 'aileron', sans-serif;
+    --fucsia: #FF5A70;
+    --success-ligh: rgba(54, 207, 130, 0.18);
+    --warning-ligh: rgba(242, 157, 66, 0.3);
+    --body: 14px/24px var(--fontBase);
+    --body2: 11px/20px var(--fontBase);
+    --bold: bold 16px/20px var(--fontBase);
+    --bold2: bold 11px/20px var(--fontBase);
+    --menu: bold 18px/24px var(--fontBase);
+    --headLine3: bold 32px/36px var(--fontBase);
+}
+
+// Globals Styles
+
+body {
+    background: #F9F9F9;
+}
+
+.wrapper {
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+@media(min-width: 768px){
+    .wrapper {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}

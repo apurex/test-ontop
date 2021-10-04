@@ -1,0 +1,142 @@
+.content-table {
+    background-color: #fff;
+    padding-left: 12px;
+    padding-right: 31px;
+    padding-bottom: 30px;
+    display: none;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
+    table {
+        // border-collapse: collapse;
+        border-collapse:separate; 
+        border-spacing: 0 24px;
+        width: 100%;
+        thead {
+            height: 66px;
+            tr {
+                color: #000;
+                font: var(--bold);
+            }
+        }
+        tbody {
+            tr {
+                height: 90px;
+                font: var(--body);
+                color: #3B3B3B;
+                background-color: #F9F9F9;
+                text-align: center;
+                margin-bottom: 24px;
+
+                .avatar {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        border-radius: 100%;
+                        margin-right: 15px;
+                    }
+                }
+
+                .status {
+                    padding: 7px;
+                    border-radius: 20px;
+                    text-align: left;
+                    font-size: 10px;
+                    font-weight: 700;
+                    mat-icon {
+                        height: 16px;
+                        width: 16px;
+                        font-size: 10px;
+                    }
+                }
+                .active {
+                    background: rgba(54, 207, 130, 0.18);
+                    color: #36CF82;
+                    
+                }
+
+                .warning {
+                    background: rgba(242, 157, 66, 0.3);
+                    color: #F29D42;
+                }
+            }
+        }
+        
+    }
+}
+
+/**
+********************************
+* Table Responsive Style
+*/
+.table-responsive {
+    .card-item {
+        background: #FFFFFF;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 21px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            tbody {
+                tr:nth-of-type(2n+1) {
+                    background-color: #F9F9F9;
+                }
+
+                tr td {
+                    padding-top: 9px;
+                    padding-bottom: 9px;
+                    padding-left: 20px;
+                }
+
+                .header {
+                    font: var(--bold2);
+                }
+
+                .field {
+                    font: var(--body2);
+                }
+
+                .status {
+                    padding-left: 7px;
+                    margin-top:auto;
+                    border-radius: 20px;
+                    text-align: left;
+                    font-size: 10px;
+                    font-weight: 700;
+                    mat-icon {
+                        height: 16px;
+                        width: 16px;
+                        font-size: 10px;
+                    }
+                }
+                .active {
+                    background: rgba(54, 207, 130, 0.18);
+                    color: #36CF82;
+                    
+                }
+
+                .warning {
+                    background: rgba(242, 157, 66, 0.3);
+                    color: #F29D42;
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 768px){
+    .content-table {
+        display: block;
+    }
+
+    .table-responsive {
+        display: none;
+    }
+}

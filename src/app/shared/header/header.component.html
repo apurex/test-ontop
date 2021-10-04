@@ -1,0 +1,47 @@
+<mat-toolbar color="white">
+    <!-- Menu Responsive -->
+    <div fxFlex fxLayout fxLayoutAlign="space-between center" fxHide.gt-xs>
+        <a href="!#">
+            <img src="/assets/logo.png" width="79" height="19" alt="ontop">
+        </a>
+        
+        <button class="menu-button" mat-icon-button [matMenuTriggerFor]="dropMenu" fxHide fxShow.xs>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #dropMenu="matMenu">
+            <ng-container *ngFor="let item of menuItems">
+                <button mat-menu-item>
+                    <mat-icon class="mr">{{item.icon}}</mat-icon>
+                    {{item.label}}
+                </button>
+                <mat-divider></mat-divider>
+            </ng-container>
+        </mat-menu>
+    </div>
+    <!-- Menu -->
+    <div fxFlex fxLayout fxLayoutAlign="space-between center" fxHide.xs>
+        <img src="/assets/logo.png" width="149" height="37" alt="ontop">
+        <!-- MenuItems -->
+        <div class="menu-items">
+            <a mat-button *ngFor="let item of menuItems">
+                <mat-icon class="mr">{{ item.icon }}</mat-icon>
+                {{item.label}}
+                <mat-icon class="mr">expand_more</mat-icon>
+            </a>
+        </div>
+        <!-- Avatar -->
+        <div class="avatar">
+            <hr>
+            <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+                <!-- <i class="fa fa-user white-icon" aria-hidden="true"></i> -->
+                <img width="65" height="65" src="/assets/avatar.png">
+                <mat-icon class="mr">expand_more</mat-icon>
+            </button>
+            <mat-menu #profileMenu="matMenu">
+                <button mat-menu-item routerLink="/profile"> <i class="fa fa-user" aria-hidden="true"></i> Profile </button>
+                <button mat-menu-item> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout </button>
+            </mat-menu>
+        </div>
+        
+    </div>
+</mat-toolbar>

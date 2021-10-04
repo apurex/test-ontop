@@ -1,0 +1,89 @@
+<div class="container-home">
+    <!-- Title -->
+    <section class="client">
+        <h3>
+            Contracts for {{client}}
+        </h3>
+    </section>
+    <!-- Filter One -->
+    <section class="filter-one">
+        <div fxFlex fxLayout="row wrap" fxLayout.gt-xs="row" fxLayoutGap.gt-sm="18px" fxLayoutAlign="space-between center">
+            <div class="filter-search">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <input matInput placeholder="Search">
+                    <mat-icon matPrefix class="my-icon">search</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap.gt-sm="18px" class="bottoms">
+                <button mat-flat-button class="filter-buttom">
+                    <mat-icon class="mr">tune</mat-icon>
+                    Filter
+                </button>
+                <button mat-flat-button class="add-buttom">
+                    <mat-icon class="mr">add</mat-icon>
+                    New hire
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Filter Two -->
+    <section class="filter-two">
+        <div fxFlex fxLayout="row wrap" fxLayout.gt-xs="row" fxLayoutGap.gt-sm="28px" fxLayoutAlign="space-between center">
+            <mat-form-field  appearance="outline">
+                <mat-label>Start date</mat-label>
+                <input matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matPrefix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contract type</mat-label>
+                <mat-select>
+                  <mat-option value="option">Traditional</mat-option>
+                  <mat-option value="option">Contract</mat-option>
+                  <mat-option value="option">Freelancer</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput placeholder="Contractor Name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select>
+                    <mat-option value="option">Active</mat-option>
+                    <mat-option value="option">Signature pending</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="clear-filter">
+                <div class="elements">
+                    <mat-icon>delete_outline</mat-icon>
+                    <span>
+                        Clear filters
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Data -->
+    <div class="table-data">
+        <app-custom-table
+            [columns]="columnsTable"
+            [data]="fakerData"
+            [showActions]="true"
+            [editAction]="true"
+            [deleteAction]="true"
+            [singAction]="true"
+            [summaryAction]="true"
+            (editEvent)="rowEdit($event)"
+            (deleteEvent)="rowDelete($event)"
+            (singEvent)="rowSing($event)"
+            (summaryEvent)="rowSing($event)"
+        >
+        </app-custom-table>
+    </div>
+</div>

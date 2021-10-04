@@ -1,0 +1,161 @@
+<!-- General Table -->
+<div class="content-table">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns" scope="col">
+                    {{ column.label }}
+                </th>
+                <th *ngIf="showActions" scope="col">Actions</th>
+              </tr>
+        </thead>
+        <tbody *ngIf="data.length">
+            <tr *ngFor="let row of data">
+                <ng-container *ngFor="let header of columns">
+                    <td *ngIf="header.type == 'text'">
+                        {{ row[header.field] }}
+                    </td>
+
+                    <td *ngIf="header.type == 'avatar'">
+                        <div class="avatar">
+                            <img width="41" height="41" src="/assets/avatar.png">
+                            {{ row[header.field] }}
+                        </div>
+                    </td>
+
+                    <td *ngIf="header.type == 'status'">
+                        <div class="status" [class]="row['classStatus']">
+                            <span >
+                                <mat-icon>circle</mat-icon>
+                                {{ row[header.field] }}
+                            </span>
+                        </div>
+                    </td>
+
+                    <td *ngIf="header.type == 'date'">
+                        {{ row[header.field] | date:'mediumDate' }}
+                    </td>
+                </ng-container>
+                <td *ngIf="showActions">
+                    <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #dropMenu="matMenu">
+                        <button *ngIf="editAction" mat-menu-item (click)="editEvent.emit(row)">
+                            <mat-icon class="mr">edit</mat-icon>
+                            Edit
+                        </button>
+                        <mat-divider  *ngIf="editAction"></mat-divider>
+
+                        <button *ngIf="singAction" mat-menu-item (click)="singEvent.emit(row)">
+                            <mat-icon class="mr">brush</mat-icon>
+                            Sign
+                        </button>
+                        <mat-divider *ngIf="singAction"></mat-divider>
+
+                        <button *ngIf="summaryAction" mat-menu-item (click)="summaryEvent.emit(row)">
+                            <mat-icon class="mr">description</mat-icon>
+                            View summary
+                        </button>
+                        <mat-divider *ngIf="summaryAction"></mat-divider>
+
+                        <button *ngIf="deleteAction" mat-menu-item (click)="deleteEvent.emit(row)">
+                            <mat-icon class="mr" color="danger">delete</mat-icon>
+                            Delete
+                        </button>
+                        <mat-divider *ngIf="deleteAction"></mat-divider>
+                    </mat-menu>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <mat-paginator 
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = paginatorChanges($event)"
+        aria-label="Select page"
+        >
+    </mat-paginator>
+</div>
+
+<!-- Responsive Table -->
+<div *ngIf="data.length" class="table-responsive">
+    <div *ngFor="let row of data" class="card-item">
+        <table>
+            <tbody>
+                <tr *ngFor="let header of columns">
+                    <td class="header">
+                        {{ header.label }}
+                    </td>
+                    <td class="field" *ngIf="header.type == 'text'">
+                        {{ row[header.field] }}
+                    </td>
+
+                    <td class="field" *ngIf="header.type == 'avatar'">
+                        {{ row[header.field] }}
+                    </td>
+
+                    <td class="field" *ngIf="header.type == 'status'">
+                        <div class="status" [class]="row['classStatus']">
+                            <span >
+                                <mat-icon>circle</mat-icon>
+                                {{ row[header.field] }}
+                            </span>
+                        </div>
+                    </td>
+
+                    <td class="field" *ngIf="header.type == 'date'">
+                        {{ row[header.field] | date:'mediumDate' }}
+                    </td>
+                </tr>
+                <tr *ngIf="showActions">
+                    <td class="header">
+                        Actions
+                    </td>
+                    <td>
+                        <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #dropMenu="matMenu">
+                            <button *ngIf="editAction" mat-menu-item (click)="editEvent.emit(row)">
+                                <mat-icon class="mr">edit</mat-icon>
+                                Edit
+                            </button>
+                            <mat-divider  *ngIf="editAction"></mat-divider>
+    
+                            <button *ngIf="singAction" mat-menu-item (click)="singEvent.emit(row)">
+                                <mat-icon class="mr">brush</mat-icon>
+                                Sign
+                            </button>
+                            <mat-divider *ngIf="singAction"></mat-divider>
+    
+                            <button *ngIf="summaryAction" mat-menu-item (click)="summaryEvent.emit(row)">
+                                <mat-icon class="mr">description</mat-icon>
+                                View summary
+                            </button>
+                            <mat-divider *ngIf="summaryAction"></mat-divider>
+    
+                            <button *ngIf="deleteAction" mat-menu-item (click)="deleteEvent.emit(row)">
+                                <mat-icon class="mr" color="danger">delete</mat-icon>
+                                Delete
+                            </button>
+                            <mat-divider *ngIf="deleteAction"></mat-divider>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <mat-paginator 
+            [length]="length"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="pageEvent = paginatorChanges($event)"
+            aria-label="Select page"
+            >
+        </mat-paginator>
+    </div>
+</div>

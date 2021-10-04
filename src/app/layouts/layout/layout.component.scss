@@ -1,0 +1,39 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+mat-sidenav {
+    width: 250px;
+}
+
+
+
+.fab-button {
+    z-index: 5;
+    display : flex; 
+    width: 100%;
+    justify-content: flex-end;
+    padding-bottom: 28px;
+    padding-top: 21px;
+
+    button {
+        background: var(--fucsia);
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media(min-width: 768px){
+    .fab-button {
+        // z-index: 5;
+        position: fixed;
+        display : flex; 
+        align-self : flex-end;
+        bottom : 0;
+        right: 68px;
+        margin-bottom : 68px;
+    
+        button {
+            background: var(--fucsia);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+        }
+    }
+}

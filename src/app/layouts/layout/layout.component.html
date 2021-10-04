@@ -1,0 +1,24 @@
+<div>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation">
+            <!--this is a place for us to add side-nav code-->
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <!--in here all the content must reside. We will add a navigation header as well-->
+            <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+            <div class="wrapper">
+                <div class="main">
+                    <!-- Content -->
+                    <router-outlet></router-outlet>
+                </div>
+                <!-- Fab Buttom -->
+                <div class="fab-button">
+                    <button mat-fab color="primary">
+                        <!-- <mat-icon>delete</mat-icon> -->
+                        <img width="30" height="30" src="/assets/Frame.png">
+                    </button>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
