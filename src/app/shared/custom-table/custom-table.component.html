@@ -137,7 +137,7 @@
                             </button>
                             <mat-divider *ngIf="summaryAction"></mat-divider>
     
-                            <button *ngIf="deleteAction" mat-menu-item (click)="deleteEvent.emit(row)">
+                            <button class="delete-button" *ngIf="deleteAction" mat-menu-item (click)="deleteEvent.emit(row)">
                                 <mat-icon class="mr" color="danger">delete</mat-icon>
                                 Delete
                             </button>

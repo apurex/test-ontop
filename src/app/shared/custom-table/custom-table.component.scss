@@ -60,6 +60,13 @@
                     background: rgba(242, 157, 66, 0.3);
                     color: #F29D42;
                 }
+                mat-menu {
+                    .delete-button {
+                        mat-icon {
+                            color: var(--fucsia);
+                        }
+                    }
+                }
             }
         }
         
